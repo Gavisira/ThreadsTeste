@@ -45,7 +45,7 @@ namespace ThreadsTeste
             var orders = new List<Order>() { new Order("Lucas 0", 43, 1), new Order("Lucas 1", 83, 1), new Order("Lucas 2", 40, 1) };
             //Bucar o txt com os dados dos pedidos com tempo 0
             //carregar eles em uma lista de pedidos => var orders = new List<Order>()
-            Mat.Enqueue(Order.OrderByDeadlineAndQuantity(orders));
+            //Mat.Enqueue(Order.OrderByDeadlineAndQuantity(orders));
 
         }
 
