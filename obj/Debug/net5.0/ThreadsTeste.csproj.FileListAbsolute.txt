@@ -1,0 +1,15 @@
+/Users/lucassantos/source/c#/ThreadsTeste/bin/Debug/net5.0/ThreadsTeste.deps.json
+/Users/lucassantos/source/c#/ThreadsTeste/bin/Debug/net5.0/ThreadsTeste.runtimeconfig.json
+/Users/lucassantos/source/c#/ThreadsTeste/bin/Debug/net5.0/ThreadsTeste.runtimeconfig.dev.json
+/Users/lucassantos/source/c#/ThreadsTeste/bin/Debug/net5.0/ThreadsTeste.dll
+/Users/lucassantos/source/c#/ThreadsTeste/bin/Debug/net5.0/ref/ThreadsTeste.dll
+/Users/lucassantos/source/c#/ThreadsTeste/bin/Debug/net5.0/ThreadsTeste.pdb
+/Users/lucassantos/source/c#/ThreadsTeste/obj/Debug/net5.0/ThreadsTeste.csprojAssemblyReference.cache
+/Users/lucassantos/source/c#/ThreadsTeste/obj/Debug/net5.0/ThreadsTeste.GeneratedMSBuildEditorConfig.editorconfig
+/Users/lucassantos/source/c#/ThreadsTeste/obj/Debug/net5.0/ThreadsTeste.AssemblyInfoInputs.cache
+/Users/lucassantos/source/c#/ThreadsTeste/obj/Debug/net5.0/ThreadsTeste.AssemblyInfo.cs
+/Users/lucassantos/source/c#/ThreadsTeste/obj/Debug/net5.0/ThreadsTeste.csproj.CoreCompileInputs.cache
+/Users/lucassantos/source/c#/ThreadsTeste/obj/Debug/net5.0/ThreadsTeste.dll
+/Users/lucassantos/source/c#/ThreadsTeste/obj/Debug/net5.0/ref/ThreadsTeste.dll
+/Users/lucassantos/source/c#/ThreadsTeste/obj/Debug/net5.0/ThreadsTeste.pdb
+/Users/lucassantos/source/c#/ThreadsTeste/obj/Debug/net5.0/ThreadsTeste.genruntimeconfig.cache
