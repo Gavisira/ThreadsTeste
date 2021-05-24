@@ -14,7 +14,8 @@ namespace ThreadsTeste
                 this.Products.Add(new Product());
             }
 
-            time +=Time;
+            time += Time;
+            //Thread.Sleep(5000);
         }
         public static int Limit { get; } = 5000;
         public static int Time { get; } = 5;

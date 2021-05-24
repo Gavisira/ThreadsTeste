@@ -26,7 +26,7 @@ namespace ThreadsTeste
                     var orders  = Load(int.Parse(quant));
                     Mat.Enqueue(orders, true);
                     Program.PrintValues(Mat.OrdersQueue);
-                    StartProcess();
+                    RestartProcess();
                 }
             }
         }
@@ -42,17 +42,19 @@ namespace ThreadsTeste
 
         public static void InitQueue()
         {
-            var orders = new List<Order>() { new Order("Lucas 0", 43, 1), new Order("Lucas 1", 83, 1), new Order("Lucas 2", 40, 1) };
-            //Bucar o txt com os dados dos pedidos com tempo 0
-            //carregar eles em uma lista de pedidos => var orders = new List<Order>()
-            //Mat.Enqueue(Order.OrderByDeadlineAndQuantity(orders));
-
+            Mat.Enqueue(ReadFile.ReadOrdersList("./Empacotadeira.txt"));
         }
 
-        //todo Adicionar novos pedidos ao longo da execução
         public static List<Order> Load(int quantity)
         {
-            return new List<Order>();
+            var newOrders = new List<Order>();
+            for (int i = 0; i < quantity; i++)
+            {
+                var line = Console.ReadLine();
+                newOrders.Add(GetOrderByLine(line));
+            }
+
+            return newOrders;
         }
 
         public static void RestartProcess()
@@ -60,14 +62,24 @@ namespace ThreadsTeste
             ProcessStarts = true;
             if (Mat01.ThreadState == ThreadState.Stopped)
             {
-                Mat01 = new Thread(Run);
+                Mat01 = new Thread(new Mat().Run);
                 Mat01.Start();
             }
             if (Mat02.ThreadState == ThreadState.Stopped)
             {
-                Mat02 = new Thread(Run);
+                Mat02 = new Thread(new Mat().Run);
                 Mat02.Start();
             }
+        }
+
+        public static Order GetOrderByLine(string line){
+            string[] splitter = line.Split(";");
+
+            return new Order(
+                splitter[0],
+                int.Parse(splitter[1]), 
+                int.Parse(splitter[2]) == 0? int.MaxValue : int.Parse(splitter[2])
+            );
         }
 
 
