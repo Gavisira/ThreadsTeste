@@ -42,9 +42,9 @@ namespace ThreadsTeste
 
         public static void InitQueue()
         {
-            Mat.Enqueue(ReadFile.ReadOrdersList("./Empacotadeira.txt"));
+            //Mat.Enqueue(Order.OrderByDeadlineAndQuantity(ReadFile.ReadOrdersList("./dados/Empacotadeira.txt")));
+            Mat.Enqueue(Order.OrderByDeadlineAndQuantity(ReadFile.ReadOrdersList("./dados/Teste1.txt")));
         }
-
         public static List<Order> Load(int quantity)
         {
             var newOrders = new List<Order>();

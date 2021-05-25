@@ -23,5 +23,11 @@ namespace ThreadsTeste
                 Console.WriteLine(" Obj da fila {0} Quantidade {1} Prioridade {2}", obj.ClientName, obj.ProductQuantity, obj.Deadline);
             Console.WriteLine();
         }
+
+        public static void PrintColofull(string text, ConsoleColor color){
+            Console.ForegroundColor = color;
+            Console.WriteLine(text);
+            Console.ResetColor();
+        }
     }
 }
