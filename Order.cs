@@ -14,24 +14,38 @@ namespace ThreadsTeste
             this.Deadline = deadline;
 
         }
-        public string ClientName { get; set; }
-        public int ProductQuantity { get; set; }
+        public string ClientName { get; set; }-        public int ProductQuantity { get; set; }
         public int Deadline { get; set; }
         public List<Package> Packages { get; set; } = new List<Package>();
 
         public void Execute(ref int time)
         {
+            //pede o produto para a controller de distribuição
+            var product = new Product(1, 100);
             var packagesQuantity = Package.GetPackagesQuantity(this.ProductQuantity); //4
             for (int i = 0; i < packagesQuantity; i++)
             {
+                var products = new List<Product>();
+                
 
                 var package = new Package(
-                    this.ProductQuantity > Package.GetMaxProducts()? Package.GetMaxProducts(): this.ProductQuantity,
-                    ref time
+                    products;
                 );
                 this.Packages.Add(package);
                 this.ProductQuantity -= package.ProductsQuantity;
             }
+        }
+
+        private void Pack(int productQuantity, )
+        {
+            
+                var maxProducts = Package.GetMaxProducts(product.Space);
+
+                var quantityProducts =productQuantity > maxProducts? maxProducts: productQuantity;
+                for (int j = 0; j < quantityProducts; j++)
+                {
+                    products.Add(product);
+                }
         }
 
         public static List<Order> OrderByDeadlineAndQuantity(List<Order> orders){

@@ -8,8 +8,6 @@ namespace ThreadsTeste
     {
         public static Queue<Order> OrdersQueue = new Queue<Order>();
         public static bool Mutex = false;
-        public static int TimeMat01 = 0;
-        public static int TimeMat02 = 0;
         private static void StartMutex() => Mutex = true;
         private static void StopMutex() => Mutex = false;
 
@@ -33,6 +31,9 @@ namespace ThreadsTeste
 
         public static Order Dequeue()
         {
+            //receber o tempo
+            //localizar o proximo pedido procurando pelo menor prioridade e menor quantidade de produtos 
+            //
             while (Mutex) { /*Console.WriteLine("Aguardando mutex");*/ }
 
             StartMutex();

@@ -6,14 +6,9 @@ namespace ThreadsTeste
 {
     public class Package
     {
-        public Package(int productsQuantity, ref int time)
+        public Package(List<Product> products )
         {
-            this.ProductsQuantity = productsQuantity;
-            for (int i = 0; i < this.ProductsQuantity; i++)
-            {
-                this.Products.Add(new Product());
-            }
-
+            Products = products;
             time += Time;
             //Thread.Sleep(5000);
         }
@@ -22,13 +17,13 @@ namespace ThreadsTeste
         public List<Product> Products { get; set; } = new List<Product>();
         public int ProductsQuantity { get; set; }
 
-        public static int GetMaxProducts() =>Limit / Product.Space;
+        public static int GetMaxProducts(int productSpace) =>Limit / productSpace;
 
-        public static int GetPackagesQuantity(int productQuantity)
+        public static int GetPackagesQuantity(int productQuantity, int productSpace)
         {
-            var quantity = productQuantity / GetMaxProducts();
+            var quantity = productQuantity / GetMaxProducts(productSpace);
 
-            return productQuantity % GetMaxProducts() == 0 ? quantity : (quantity+1);
+            return productQuantity % GetMaxProducts(productSpace) == 0 ? quantity : (quantity+1);
         }
 
     }
