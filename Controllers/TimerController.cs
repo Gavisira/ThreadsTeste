@@ -12,19 +12,19 @@ namespace ThreadsTeste.Controllers
 
         public static void AddTime(this Thread thread, int time)
         {
-            ThreadTimes.FirstOrDefault(c => c.Thread.Name == thread.Name).Time += time;
+            ThreadTimes.FirstOrDefault(c => c.Thread.ManagedThreadId == thread.ManagedThreadId).Time += time;
         }
 
-        public static int GetTime(this Thread thread, int time)
+        public static int GetTime(this Thread thread)
         {
-            return ThreadTimes.FirstOrDefault(c => c.Thread.Name == thread.Name).Time;
+            return ThreadTimes.FirstOrDefault(c => c.Thread.ManagedThreadId == thread.ManagedThreadId).Time;
         }
 
     }
 
     public class ThreadTime
     {
-        private ThreadTime(Thread thread, int time)
+        public ThreadTime(Thread thread, int time)
         {
             this.Thread = thread;
             this.Time = time;

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using ThreadsTeste.Controllers;
 
 namespace ThreadsTeste
 {
@@ -25,7 +26,7 @@ namespace ThreadsTeste
                         {
                             Console.WriteLine(line);
 
-                            list.Add(Controller.GetOrderByLine(line));
+                            list.Add(MainController.GetOrderByLine(line));
                         }
                     }
                 }

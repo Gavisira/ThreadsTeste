@@ -2,48 +2,31 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 
-namespace ThreadsTeste
+namespace ThreadsTeste.Controllers
 {
-    public class Controller
+    public class MainController
     {
         public static Thread Mat01 = new Thread(new Mat().Run);
         public static Thread Mat02 = new Thread(new Mat().Run);
-        public static Thread Main = new Thread(Run);
         public static bool ProcessStarts = false;
         public static void StartProcess() => ProcessStarts = true;
         public static void StopProcess() => ProcessStarts = false;
 
-        public static void Run()
-        {
-            while (ProcessStarts)
-            {
-                var input = Console.ReadLine();
-                if (input == "0") StopProcess();
-                if (input == "2")
-                {
-                    StopProcess();
-                    var quant = Console.ReadLine();
-                    var orders  = Load(int.Parse(quant));
-                    Mat.Enqueue(orders, true);
-                    Program.PrintValues(Mat.OrdersQueue);
-                    RestartProcess();
-                }
-            }
-        }
-
         public static void RunTheads()
         {
+
             StartProcess();
 
             Mat01.Start();
             Mat02.Start();
-            Main.Start();
+            TimerController.ThreadTimes.Add(new ThreadTime(Mat01, 0));
+            TimerController.ThreadTimes.Add(new ThreadTime(Mat02, 0));
         }
 
-        public static void InitQueue()
+        public static void InitControllers()
         {
-            //Mat.Enqueue(Order.OrderByDeadlineAndQuantity(ReadFile.ReadOrdersList("./dados/Empacotadeira.txt")));
-            Mat.Enqueue(Order.OrderByDeadlineAndQuantity(ReadFile.ReadOrdersList("./data/Teste1.txt")));
+            DeliveryController.Orders = ReadFile.ReadOrdersList("./data/Teste1.txt");
+
         }
         public static List<Order> Load(int quantity)
         {

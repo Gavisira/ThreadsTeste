@@ -2,10 +2,10 @@ namespace ThreadsTeste.Models
 {
     public class Container
     {
-        public Container(Product product, int space)
+        public Container(Product product)
         {
             this.Product = product;
-            this.Space = space;
+            this.Space = 1000000/product.Space;
         }
         public Product Product { get; set; }
 

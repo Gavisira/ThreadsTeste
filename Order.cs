@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
+using ThreadsTeste.Controllers;
 
 namespace ThreadsTeste
 {
@@ -14,31 +16,32 @@ namespace ThreadsTeste
             this.Deadline = deadline;
 
         }
-        public string ClientName { get; set; }-        public int ProductQuantity { get; set; }
+        public string ClientName { get; set; }       
+        public int ProductQuantity { get; set; }
         public int Deadline { get; set; }
+        public int ProductId {get; set;}
+        public bool Executed {get;set;}
+        public int EntryTime { get; set; }
         public List<Package> Packages { get; set; } = new List<Package>();
 
-        public void Execute(ref int time)
+        public void Execute(Product product)
         {
-            //pede o produto para a controller de distribuição
-            var product = new Product(1, 100);
-            var packagesQuantity = Package.GetPackagesQuantity(this.ProductQuantity); //4
+            var packTime = 0;
+            var packagesQuantity = Package.GetPackagesQuantity(this.ProductQuantity, product.Space);
             for (int i = 0; i < packagesQuantity; i++)
             {
-                var products = new List<Product>();
-                
-
-                var package = new Package(
-                    products;
-                );
+                var package = Pack(this.ProductQuantity, product);
                 this.Packages.Add(package);
                 this.ProductQuantity -= package.ProductsQuantity;
+                packTime += Package.Time;
             }
+
+            Thread.CurrentThread.AddTime(packTime);
         }
 
-        private void Pack(int productQuantity, )
+        private Package Pack(int productQuantity, Product product)
         {
-            
+                var products = new List<Product>();
                 var maxProducts = Package.GetMaxProducts(product.Space);
 
                 var quantityProducts =productQuantity > maxProducts? maxProducts: productQuantity;
@@ -46,10 +49,18 @@ namespace ThreadsTeste
                 {
                     products.Add(product);
                 }
+
+                return new Package(
+                    products
+                );
         }
 
         public static List<Order> OrderByDeadlineAndQuantity(List<Order> orders){
-            return orders.OrderBy(x => x.Deadline).ThenBy(x => x.ProductQuantity).ToList();
+            return orders
+                .Where(c=> c.EntryTime <= Thread.CurrentThread.GetTime())
+                .OrderBy(x => x.Deadline)
+                .ThenBy(x => x.ProductQuantity)
+                .ToList();
         }
 
         

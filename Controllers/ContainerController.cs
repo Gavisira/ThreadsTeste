@@ -6,11 +6,11 @@ namespace ThreadsTeste.Controllers
 {
     public class ContainerController
     {
-        private List<Container> ActiveContainers = new List<Container>();
+        private static List<Container> Containers = new List<Container>();
 
-        public List<Product> GetActiveContainers()
+        public List<Product> GetProductsOfActiveContainers()
         {
-            return this.ActiveContainers.Select(c => c.Product).ToList();
+            return Containers.Where(c=> c.Active).Select(c => c.Product).OrderByDescending(c=> c.Space).ToList();
         }
 
         public void InitContainers()
