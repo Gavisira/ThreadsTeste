@@ -9,7 +9,6 @@ namespace ThreadsTeste.Controllers
         public static List<ThreadTime> ThreadTimes = new List<ThreadTime>();
 
 
-
         public static void AddTime(this Thread thread, int time)
         {
             ThreadTimes.FirstOrDefault(c => c.Thread.ManagedThreadId == thread.ManagedThreadId).Time += time;

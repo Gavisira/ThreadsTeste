@@ -23,6 +23,7 @@ namespace ThreadsTeste.Controllers
         public void AlterAtiveContainers(){
             //altera o container ativo
             //adiciona time contoller o tempo para a thead atual
+            //adicionar o tempo de troca de container
         }
 
     }
