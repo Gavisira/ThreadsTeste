@@ -8,6 +8,7 @@ namespace ThreadsTeste.Controllers
     public class ContainerController
     {
         private static List<Container> Containers = new List<Container>();
+        private static Mutex mutex = new Mutex();
 
         public List<Product> GetProductsOfActiveContainers()
         {
@@ -22,6 +23,14 @@ namespace ThreadsTeste.Controllers
         }
 
         public void AlterAtiveContainers(){
+            try
+            {
+                mutex.WaitOne();
+            }
+            finally
+            {
+                mutex.ReleaseMutex();
+            }
             //altera o container ativo
             //adiciona time contoller o tempo para a thead atual
             //adicionar o tempo de troca de container
@@ -37,13 +46,13 @@ namespace ThreadsTeste.Controllers
             }   
         }
 
-        public void SetContainerInactive(int quant)
+        public void SetContainerInative(int quant)
         {
 
             Containers = Containers.Where(c=> !c.Consumed).OrderBy(c=> c.Capacity).ToList();
             for (int i = 0; i < quant; i++)
             {
-                Containers[i].SetInactive();
+                Containers[i].SetInative();
             }   
         }
 

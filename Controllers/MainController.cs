@@ -26,34 +26,10 @@ namespace ThreadsTeste.Controllers
         public static void InitControllers()
         {
             DeliveryController.Orders = ReadFile.ReadOrdersList("./data/Teste1.txt");
+            ContainerController.InitContainers(ReadFile.ReadContainerList(""));
 
         }
-        public static List<Order> Load(int quantity)
-        {
-            var newOrders = new List<Order>();
-            for (int i = 0; i < quantity; i++)
-            {
-                var line = Console.ReadLine();
-                newOrders.Add(GetOrderByLine(line));
-            }
 
-            return newOrders;
-        }
-
-        public static void RestartProcess()
-        {
-            ProcessStarts = true;
-            if (Mat01.ThreadState == ThreadState.Stopped)
-            {
-                Mat01 = new Thread(new Mat().Run);
-                Mat01.Start();
-            }
-            if (Mat02.ThreadState == ThreadState.Stopped)
-            {
-                Mat02 = new Thread(new Mat().Run);
-                Mat02.Start();
-            }
-        }
 
         public static Order GetOrderByLine(string line){
             string[] splitter = line.Split(";");
