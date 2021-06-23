@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2LVywea5rrUaTVsasKAMDUZhfGGNshMb+4XIUcKiLj2vOXL2APx39+BzL1a9FwzTDVeZ8e58JodwWyy8sSXJmw==",
+  "dgSpecHash": "IQ77SvXb8wY1wWNG5O5cB1XWyCjNaczaATltvVQVbipIFTrv4Vs8SSNzjSyfDXqNmTHfi7mbZVOSojIfJmCDmw==",
   "success": true,
-  "projectFilePath": "/Users/lucassantos/source/c#/ThreadsTeste/ThreadsTeste.csproj",
+  "projectFilePath": "C:\\Users\\gabri\\Documents\\GitHub\\ThreadsTeste\\ThreadsTeste.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

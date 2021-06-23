@@ -6,8 +6,8 @@ namespace ThreadsTeste.Controllers
 {
     public class MainController
     {
-        public static Thread Mat01 = new Thread(new Mat().Run);
-        public static Thread Mat02 = new Thread(new Mat().Run);
+        public static Thread Mat01 = new Thread(new MatController().RunMat);
+        public static Thread Mat02 = new Thread(new MatController().RunMat);
         public static bool ProcessStarts = false;
         public static void StartProcess() => ProcessStarts = true;
         public static void StopProcess() => ProcessStarts = false;
@@ -25,8 +25,8 @@ namespace ThreadsTeste.Controllers
 
         public static void InitControllers()
         {
-            DeliveryController.Orders = ReadFile.ReadOrdersList("./data/Teste1.txt");
-            ContainerController.InitContainers(ReadFile.ReadContainerList(""));
+            DeliveryController.Orders = ReadFile.ReadOrdersList(@"C:\Users\gabri\Documents\GitHub\ThreadsTeste\Data\Empacotadeira.txt");
+            ContainerController.InitContainers(ReadFile.ReadContainerList(@"C:\Users\gabri\Documents\GitHub\ThreadsTeste\Data\Teste1.txt"));
 
         }
 

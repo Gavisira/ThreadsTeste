@@ -1,25 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "/Users/lucassantos/source/c#/ThreadsTeste/ThreadsTeste.csproj": {}
+    "C:\\Users\\gabri\\Documents\\GitHub\\ThreadsTeste\\ThreadsTeste.csproj": {}
   },
   "projects": {
-    "/Users/lucassantos/source/c#/ThreadsTeste/ThreadsTeste.csproj": {
+    "C:\\Users\\gabri\\Documents\\GitHub\\ThreadsTeste\\ThreadsTeste.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/lucassantos/source/c#/ThreadsTeste/ThreadsTeste.csproj",
+        "projectUniqueName": "C:\\Users\\gabri\\Documents\\GitHub\\ThreadsTeste\\ThreadsTeste.csproj",
         "projectName": "ThreadsTeste",
-        "projectPath": "/Users/lucassantos/source/c#/ThreadsTeste/ThreadsTeste.csproj",
-        "packagesPath": "/Users/lucassantos/.nuget/packages/",
-        "outputPath": "/Users/lucassantos/source/c#/ThreadsTeste/obj/",
+        "projectPath": "C:\\Users\\gabri\\Documents\\GitHub\\ThreadsTeste\\ThreadsTeste.csproj",
+        "packagesPath": "C:\\Users\\gabri\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\gabri\\Documents\\GitHub\\ThreadsTeste\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/Users/lucassantos/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\gabri\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -52,7 +58,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.203/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }

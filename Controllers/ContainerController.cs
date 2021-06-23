@@ -12,20 +12,42 @@ namespace ThreadsTeste.Controllers
 
         public List<Product> GetProductsOfActiveContainers()
         {
-            return Containers.Where(c=> c.Active).Select(c => c.Product).OrderByDescending(c=> c.Space).ToList();
+            return Containers.Select(c => c.Product).OrderByDescending(c=> c.Space).ToList();
         }
 
         public static void InitContainers(List<Container> containers)
         {
             Containers.AddRange(containers);
-            //adiciona ele na lista de containers
-            //ativa os primeiros containes
+
+            Containers = Containers.Where(c=> c.ExitTime != 1).OrderBy(c=> c.Capacity).ToList();
+            for (int i = 0; i < 4; i++)
+            {
+                Containers[i].SetActive();
+            } 
         }
 
-        public void AlterAtiveContainers(){
+        public void AlterAtiveContainers(List<Order> orders){
             try
             {
                 mutex.WaitOne();
+
+                var time = Thread.CurrentThread.GetTime();
+                var co = Containers.Where(
+                    c=> c.Active &&  
+                    !orders
+                        .Where(o=> o.EntryTime <= time)
+                        .Select(o=> o.ProductId)
+                        .Contains(c.Product.Id)
+                );
+
+
+                foreach(Container c in co)
+                {
+                    c.SetInative(time);
+                }
+
+                SetContainerActive(co.Count(),time);
+                
             }
             finally
             {
@@ -36,27 +58,15 @@ namespace ThreadsTeste.Controllers
             //adicionar o tempo de troca de container
         }
 
-        public void SetContainerActive(int quant)
+        public void SetContainerActive(int quant, int threadTime)
         {
-
-            Containers = Containers.Where(c=> !c.Consumed).OrderBy(c=> c.Capacity).ToList();
+            Thread.CurrentThread.AddTime(30);
+            Containers = Containers.Where(c=> c.ExitTime != threadTime).OrderBy(c=> c.Capacity).ToList();
             for (int i = 0; i < quant; i++)
             {
                 Containers[i].SetActive();
             }   
         }
-
-        public void SetContainerInative(int quant)
-        {
-
-            Containers = Containers.Where(c=> !c.Consumed).OrderBy(c=> c.Capacity).ToList();
-            for (int i = 0; i < quant; i++)
-            {
-                Containers[i].SetInative();
-            }   
-        }
-
-        
 
     }
 }

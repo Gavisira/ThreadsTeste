@@ -30,7 +30,7 @@ namespace ThreadsTeste.Controllers
                 }
                 catch (Exception)
                 {
-                    containerCtrl.AlterAtiveContainers();
+                    containerCtrl.AlterAtiveContainers(Orders);
                 }
                 finally
                 {

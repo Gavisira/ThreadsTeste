@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading;
+using ThreadsTeste.Controllers;
 
 namespace ThreadsTeste
 {
@@ -12,11 +13,11 @@ namespace ThreadsTeste
         private static void StopMutex() => Mutex = false;
 
 
-
+/*
         public void Run()
         {
             var time = 0;
-            while (Controller.ProcessStarts)
+            while (MainController.ProcessStarts)
             {
                 if (QueueIsEmpty()) return;
                 var order = Dequeue(); //1 3
@@ -25,7 +26,7 @@ namespace ThreadsTeste
 
                 Console.WriteLine("Thread {0} tempo da thread {1}", Thread.CurrentThread.ManagedThreadId, time);
             }
-        }
+        }*/
 
 
 

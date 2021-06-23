@@ -1,3 +1,5 @@
+using System.Threading;
+using ThreadsTeste.Controllers;
 namespace ThreadsTeste.Models
 {
     public class Container
@@ -11,9 +13,11 @@ namespace ThreadsTeste.Models
 
         public int Capacity { get; set; }
 
-        public bool Active { get; private set; }
+        public bool Active { get; private set; } = false;
 
-        public bool Consumed { get; private set; }
+        public bool Consumed { get; private set; } = false;
+
+        public int ExitTime { get; private set; }
 
         public void SetActive()
         {
@@ -21,9 +25,10 @@ namespace ThreadsTeste.Models
             this.Consumed = true;
         }
 
-        public void SetInative()
+        public void SetInative(int threadTime)
         {
             this.Active = false;
+            this.ExitTime = threadTime;
         }
 
     }
