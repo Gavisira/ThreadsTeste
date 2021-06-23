@@ -61,7 +61,9 @@ namespace ThreadsTeste.Controllers
             return new Order(
                 splitter[0],
                 int.Parse(splitter[1]), 
-                int.Parse(splitter[2]) == 0? int.MaxValue : int.Parse(splitter[2])
+                int.Parse(splitter[2]) == 0? int.MaxValue : int.Parse(splitter[2]),
+                int.Parse(splitter[3]),
+                int.Parse(splitter[4])
             );
         }
 

@@ -9,11 +9,13 @@ namespace ThreadsTeste
     public class Order
     {
 
-        public Order(string clientName, int productQuantity, int deadline)
+        public Order(string clientName, int productQuantity, int deadline, int entryTime, int productId)
         {
             this.ClientName = clientName;
             this.ProductQuantity = productQuantity;
             this.Deadline = deadline;
+            this.ProductId = productId;
+            this.EntryTime = entryTime;
 
         }
         public string ClientName { get; set; }       

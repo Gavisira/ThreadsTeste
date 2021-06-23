@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using ThreadsTeste.Controllers;
 
 namespace ThreadsTeste
 {
@@ -9,11 +10,11 @@ namespace ThreadsTeste
         {
             Console.WriteLine("Hello World!");
 
-            Controller.InitQueue();
+            MainController.InitControllers();
 
             PrintValues(Mat.OrdersQueue);
 
-            Controller.RunTheads();
+            MainController.RunTheads();
 
         }
 
